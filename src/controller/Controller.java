@@ -61,9 +61,9 @@ public class Controller {
             i_graph_1.getData().add(series);
             i_resultsInfo_1.setText("Ответ:\n" +
                     "y = "+String.format("%.3f", ordinaryLeastSquares.getA())+"*x^2 + "+String.format("%.3f", ordinaryLeastSquares.getB())+"*x + "+String.format("%.3f", ordinaryLeastSquares.getC())+"\n" +
-                    "Расхождение S = " + String.format("%.3f", ordinaryLeastSquares.getdPow2().get(8)));
+                    "Отклонение S = " + String.format("%.3f", ordinaryLeastSquares.getdPow2().get(8)));
 
-            ordinaryLeastSquares.calculateNewOLS();
+            ordinaryLeastSquares.calculateNewOrdinaryLeastSquare();
             i_graph_2.getData().clear();
             series = new XYChart.Series<>();
             for (int i = 0; i < ordinaryLeastSquares.getN(); i++) {
@@ -79,7 +79,7 @@ public class Controller {
             i_graph_2.getData().add(series);
             i_resultsInfo_2.setText("Ответ:\n" +
                     "y = "+String.format("%.3f", ordinaryLeastSquares.getA())+"*x^2 + "+String.format("%.3f", ordinaryLeastSquares.getB())+"*x + "+String.format("%.3f", ordinaryLeastSquares.getC())+"\n" +
-                    "Расхождение S = " + String.format("%.4f", ordinaryLeastSquares.getdPow2().get(8)-ordinaryLeastSquares.getdPow2().get(ordinaryLeastSquares.getWorst_ind())));
+                    "Отклонение S = " + String.format("%.3f", ordinaryLeastSquares.getdPow2().get(8)-ordinaryLeastSquares.getdPow2().get(ordinaryLeastSquares.getWorst_ind())));
 
         } else {
             i_resultsInfo_1.setText("Ошибка");

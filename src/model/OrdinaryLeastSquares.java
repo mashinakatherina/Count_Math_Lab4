@@ -59,10 +59,10 @@ public class OrdinaryLeastSquares {
         worst_ind = findDpow2();
     }
 
-    public void calculateNewOLS () {
-        yiDb = new ArrayList<Double>();
-        d = new ArrayList<Double>();
-        dPow2 = new ArrayList<Double>();
+    public void calculateNewOrdinaryLeastSquare() {
+        yiDb = new ArrayList<>();
+        d = new ArrayList<>();
+        dPow2 = new ArrayList<>();
         matrix = new double[][]{
                 {xiPow4.get(n)-xiPow4.get(worst_ind), xiPow3.get(n)-xiPow3.get(worst_ind), xiPow2.get(n)-xiPow2.get(worst_ind), xiPow2ToYi.get(n)-xiPow2ToYi.get(worst_ind)},
                 {xiPow3.get(n)-xiPow3.get(worst_ind), xiPow2.get(n)-xiPow2.get(worst_ind), xi.get(n)-xi.get(worst_ind), xiyi.get(n)-xiyi.get(worst_ind)},
@@ -96,6 +96,7 @@ public class OrdinaryLeastSquares {
         dPow2.add(sum);
         return ind;
     }
+
     private void findD () {
         double next, sum = 0;
         for (int i = 0; i < n; i++) {
@@ -105,6 +106,7 @@ public class OrdinaryLeastSquares {
         }
         d.add(sum);
     }
+
     private void findYiDb () {
         double next, sum = 0;
         for (int i = 0; i < n; i++) {
@@ -189,16 +191,13 @@ public class OrdinaryLeastSquares {
                 return n3;
             case 2:
                 n1 = 1+2*Math.pow(x,2)-Math.pow(x,3);
-                //n2 = Math.sqrt(n1);
                 return n1;
             case 3:
                 n1 = 3+Math.pow(x, 5);
-                //n2 = Math.sqrt(n1);
                 n3 = 1/n1;
                 return n3;
             case 4:
                 n1 = Math.pow(x, 2)+3;
-                //n2 = Math.sqrt(n1);
                 return n1;
             default:
                 return (Math.cos(x)/(Math.pow(x, 2) + 1));
