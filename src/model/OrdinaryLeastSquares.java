@@ -92,7 +92,7 @@ public class OrdinaryLeastSquares {
             dPow2.add(next);
             sum += next;
         }
-        System.out.println("Максимум = " + max + " индекс = " + ind);
+       // System.out.println("Максимум = " + max + " индекс = " + ind);
         dPow2.add(sum);
         return ind;
     }
